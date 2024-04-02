@@ -1,0 +1,36 @@
+{
+    "[makefile]": {
+        "editor.insertSpaces": false,
+        "editor.detectIndentation": false
+    },
+    "cSpell.enabledLanguageIds": [
+        "markdown",
+        "plaintext",
+        "text",
+    ],
+    "editor.hover.enabled": false,
+    "editor.parameterHints.enabled": true,
+    "editor.stickyScroll.enabled": false,
+    "editor.stickyScroll.scrollWithEditor": false,
+    "editor.renderWhitespace": "all",
+    "editor.tabSize": 4,
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "editor.rulers": [75, 80, 95, 100],
+    "editor.folding": false,
+    "explorer.autoReveal": true,
+    "explorer.confirmDelete": false,
+    "explorer.sortOrder": "default",
+    "explorer.compactFolders": false,
+    "files.trimTrailingWhitespace": true,
+    "terminal.integrated.tabs.focusMode": "doubleClick",
+    "terminal.integrated.scrollback": 25000,
+    "workbench.list.openMode": "doubleClick",
+    "workbench.tree.expandMode": "doubleClick",
+    "workbench.editor.enablePreview": false,
+    "workbench.tree.enableStickyScroll": false,
+    "workbench.editor.wrapTabs": true,
+    "files.refactoring.autoSave": true,
+    "python.analysis.extraPaths": [
+    ],
+}

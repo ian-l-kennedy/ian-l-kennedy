@@ -2,7 +2,7 @@ Enjoy!
 
 **Please consider supporting my open source work :]**
 
-<p><a href="https://www.buymeacoffee.com/iankennedy"><img src="https://github.com/ian-l-kennedy/ian-l-kennedy/blob/main/coffee.gif" width="75" height="75" /></a> <a href="https://www.buymeacoffee.com/iankennedy"><img src="https://github.com/ian-l-kennedy/ian-l-kennedy/blob/main/buy_cof_button.png" width="200" height="50"/></a></p>
+<p><a href="https://www.buymeacoffee.com/iankennedy"><img src="https://github.com/ian-l-kennedy/ian-l-kennedy/blob/main/img/coffee.gif" width="75" height="75" /></a> <a href="https://www.buymeacoffee.com/iankennedy"><img src="https://github.com/ian-l-kennedy/ian-l-kennedy/blob/main/img/buy_cof_button.png" width="200" height="50"/></a></p>
 
 **Thank you, Open Source Community!**
 
