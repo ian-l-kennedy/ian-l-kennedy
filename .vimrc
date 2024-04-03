@@ -9,7 +9,15 @@ set guicursor=
 set relativenumber
 set scrolloff=15
 
-set list listchars=tab:>\ ,trail:-,eol:«
+set list listchars=tab:>\ ,trail:-,eol:¥
 
 set colorcolumn=80,100
 set number
+
+set wrap
+set linebreak
+set textwidth=0
+set noautoindent
+set nosmartindent
+set nocindent
+set nojoinspaces
