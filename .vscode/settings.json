@@ -23,6 +23,8 @@
     "explorer.sortOrder": "default",
     "explorer.compactFolders": false,
     "files.trimTrailingWhitespace": true,
+    "markdown.preview.scrollEditorWithPreview": false,
+    "markdown.preview.scrollPreviewWithEditor": false,
     "terminal.integrated.tabs.focusMode": "doubleClick",
     "terminal.integrated.scrollback": 25000,
     "workbench.list.openMode": "doubleClick",
