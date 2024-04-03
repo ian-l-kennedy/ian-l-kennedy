@@ -1,11 +1,42 @@
 #!/usr/bin/env bash
 # Mr. Ian Lindsay Kennedy's .bashrc
 
+########################################################################
+#   PATH DEFAULTS
+########################################################################
+
+export PATH="/usr/local/sbin"
+export PATH="${PATH}:/usr/local/bin"
+export PATH="${PATH}:/usr/sbin"
+export PATH="${PATH}:/usr/bin"
+export PATH="${PATH}:/sbin"
+export PATH="${PATH}:/bin"
+export PATH="${PATH}:/snap/bin"
+
+[ -d "/usr/lib/wsl/lib" ] && export PATH="${PATH}:/usr/lib/wsl/lib"
+[ -d "${HOME}/bin" ] && export PATH="$HOME/bin:$PATH"
+[ -d "${HOME}/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
+
+########################################################################
+#   PATH EDA TOOLS
+########################################################################
+
+export PATH_EDA="\
+"
+
+export PATH="${PATH_EDA}:${PATH}"
+
+########################################################################
+#   LICENSES
+########################################################################
+
+########################################################################
+#   OTHER
+########################################################################
+
 export BASH_SILENCE_DEPRECATION_WARNING=1
 BREW_BASH="$(brew --prefix)/etc/profile.d/bash_completion.sh"
 [[ -r "${BREW_BASH}" ]] && . "${BREW_BASH}"
-[ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
-[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 
 # export PATH=$PATH:/home/ian/tools/lattice/diamond/3.12/bin/lin64
 # export PATH=$PATH:/home/ian/tools/xilinx/ise/14.7/ISE_DS/ISE/bin/lin64
@@ -39,13 +70,16 @@ alias bond0_lic_mac="sudo sudo ip link set dev bond0 down; \
 
 # ip link add name bond0 type bond mode active-backup
 
-# Enable the subsequent settings only in interactive sessions
+
+########################################################################
+#   INTERACTIVE SESSIONS
+########################################################################
 case $- in
   *i*) ;;
     *) return;;
 esac
 
-export OSH='${HOME}/.oh-my-bash'
+export OSH="${HOME}/.oh-my-bash"
 OSH_THEME="90210"
 completions=()
 aliases=()
