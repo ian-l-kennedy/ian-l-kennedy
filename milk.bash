@@ -100,9 +100,8 @@ function LOG_HANDLER_LOGFILE() {
 }
 
 function REQUIRE_COMMAND () {
-    if ! [ -x "$(command -v ${1})"] ; then
+    if ! [ -x "$(command -v ${1})" ] ; then
         ERROR "${1} is required, but ${1} is not found on PATH."
         exit 1
     fi
 }
-
