@@ -117,8 +117,8 @@ function REQUIRE_IN_GIT () {
 function REQUIRE_GIT_HOOKS () {
     repo="${1}"
     repo_n=$(basename ${repo})
-    REQUIRE_IN_GIT
     cd ${repo}
+    REQUIRE_IN_GIT
     git config --local include.path "${repo}/.gitconfig"
     my_check=$(grep -c "${repo_n}/\.gitconfig" "${repo}/.git/config")
     if [[ $my_check -eq 0 ]]; then
