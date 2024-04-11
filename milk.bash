@@ -114,7 +114,7 @@ function REQUIRE_IN_GIT () {
     fi
 }
 
-funtion REQUIRE_GIT_HOOKS () {
+function REQUIRE_GIT_HOOKS () {
     repo=$1
     repo_n=$(basename ${repo})
     REQUIRE_IN_GIT
