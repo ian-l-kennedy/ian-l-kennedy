@@ -36,6 +36,7 @@ function FORMAT_LOG() {
     local date="$(date "$LOG_DATE_FORMAT")"
 
     local script_name_init="${BASH_SOURCE[3]}"
+    script_name_init="${script_name_init##*/}"
     local script_name=${script_name_init}
     if [[ $script_name_init == "" ]] ; then script_name=terminal ; fi
     local func_name=" ${FUNCNAME[3]}"
