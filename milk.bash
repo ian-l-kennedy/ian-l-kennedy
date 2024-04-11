@@ -113,3 +113,40 @@ function REQUIRE_IN_GIT () {
         exit 1
     fi
 }
+
+funtion REQUIRE_GIT_HOOKS () {
+    repo=$1
+    repo_n=$(basename ${repo})
+    REQUIRE_IN_GIT
+    cd ${repo}
+    git config --local include.path "${repo}/.gitconfig"
+    my_check=$(grep -c "${repo_n}/\.gitconfig" "${repo}/.git/config")
+    if [[ $my_check -eq 0 ]]; then
+        ERROR "Failed to initialize and install the git hooks"
+        exit 1
+    fi
+    # Path to the custom hooks directory and the Git hooks directory
+    custom_hooks_dir="${repo}/.githooks"
+    git_hooks_dir="${repo}/.git/hooks"
+
+    # Ensure the custom hooks directory exists
+    if [[ ! -d $custom_hooks_dir ]]; then
+        echo "No custom hooks directory found."
+        exit 1
+    fi
+
+    # Install or verify hooks
+    for hook in "$custom_hooks_dir"/*; do
+        hook_name=$(basename "$hook")
+        if [[ -x "$hook" ]] && [[ ! -e "${git_hooks_dir}/${hook_name}" ]]; then
+            echo "Installed $hook_name"
+        elif [[ -e "${git_hooks_dir}/${hook_name}" ]]; then
+            echo "$hook_name is already installed."
+        else
+            echo "Could not install $hook_name, please check permissions."
+            exit 1
+        fi
+    done
+
+    echo "All hooks checked and installed where necessary."
+}
