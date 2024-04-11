@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export LOGFILE=/tmp/bash_logger.log
 export LOG_FORMAT='%DATE PID:%PID %SNAME%LINE%FNAME: [%LEVEL]: %MESSAGE'
@@ -13,7 +13,7 @@ export LOG_COLOR_ALERT="\033[43m"                   # Yellow Background
 export LOG_COLOR_EMERGENCY="\033[41m"               # Red Background
 export RESET_COLOR="\x1b[0m"                        # Clear Colors
 
-function DEBUG() { 
+function DEBUG() {
     if ! [ -z ENABLE_BASH_LOGGER_DEBUG ] ; then
         LOG_HANDLER_DEFAULT "$FUNCNAME" "$@"
     fi
@@ -98,3 +98,11 @@ function LOG_HANDLER_LOGFILE() {
     [ -d "$log_path" ] || mkdir -p "$log_path"
     echo "$log" >> "$LOGFILE"
 }
+
+function REQUIRE_COMMAND () {
+    if ! [ -x "$(command -v ${1})"] ; then
+        ERROR "${1} is required, but ${1} is not found on PATH."
+        exit 1
+    fi
+}
+
