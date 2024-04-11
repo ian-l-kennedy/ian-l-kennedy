@@ -14,7 +14,7 @@ export LOG_COLOR_EMERGENCY="\033[41m"               # Red Background
 export RESET_COLOR="\x1b[0m"                        # Clear Colors
 
 function DEBUG() {
-    if ! [ -z ENABLE_BASH_LOGGER_DEBUG ] ; then
+    if ! [ -z $ENABLE_BASH_LOGGER_DEBUG ] ; then
         LOG_HANDLER_DEFAULT "$FUNCNAME" "$@"
     fi
 }
@@ -115,7 +115,7 @@ function REQUIRE_IN_GIT () {
 }
 
 function REQUIRE_GIT_HOOKS () {
-    repo=$1
+    repo="${1}"
     repo_n=$(basename ${repo})
     REQUIRE_IN_GIT
     cd ${repo}
