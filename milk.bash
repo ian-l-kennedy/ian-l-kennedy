@@ -105,3 +105,11 @@ function REQUIRE_COMMAND () {
         exit 1
     fi
 }
+
+function REQUIRE_IN_GIT () {
+    if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1 ; then
+        WARNING "The current directory is not part of a git repository."
+        ERROR "Required to be inside repository."
+        exit 1
+    fi
+}
