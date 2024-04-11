@@ -55,6 +55,14 @@ BREW_BASH="$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
 export XDG_CONFIG_HOME=~/.config
 
+alias docker_make="$(git rev-parse --show-toplevel)/docker_make
+
+_docker_make() {
+    COMPREPLY=($(compgen -W "$(make -qp | awk -F':' '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$)/ {split($1,A,/ /);for(i in A)print A[i]}' | sort)" -- "${COMP_WORDS[COMP_CWORD]}"))
+}
+
+complete -F _docker_make docker_make
+
 ########################################################################
 #
 #   ALIAS
