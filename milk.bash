@@ -115,8 +115,12 @@ function REQUIRE_AS_USER () {
 }
 
 function REQUIRE_VARIABLE () {
-    if [[ -z "${1}" ] ; then
-        ERROR "Variable ${1} is required, but ${1} is not set in your env."
+    local var_name="$1"
+    # Using indirect expansion to get the value of the variable by its name
+    local var_value="${!var_name}"
+
+    if [[ -z "${var_value}" ]] ; then
+        ERROR "Variable ${var_name} is required, but it is not set in your environment."
         exit 1
     fi
 }
