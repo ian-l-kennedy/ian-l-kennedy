@@ -107,6 +107,13 @@ function REQUIRE_COMMAND () {
     fi
 }
 
+function REQUIRE_AS_USER () {
+    if [[ $EUID -eq 0 ]] ; then
+        ERROR "This script was not deisgned to run as ROOT."
+        exit 1
+    fi
+}
+
 function REQUIRE_VARIABLE () {
     if [[ -z "${1}" ] ; then
         ERROR "Variable ${1} is required, but ${1} is not set in your env."
