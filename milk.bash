@@ -107,6 +107,13 @@ function REQUIRE_COMMAND () {
     fi
 }
 
+function REQUIRE_VARIABLE () {
+    if [[ -z "${1}" ] ; then
+        ERROR "Variable ${1} is required, but ${1} is not set in your env."
+        exit 1
+    fi
+}
+
 function REQUIRE_IN_GIT () {
     if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1 ; then
         WARNING "The current directory is not part of a git repository."
