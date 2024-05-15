@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
