@@ -23,6 +23,8 @@
     "explorer.sortOrder": "default",
     "explorer.compactFolders": false,
     "files.trimTrailingWhitespace": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 250,
     "markdown.preview.scrollEditorWithPreview": false,
     "markdown.preview.scrollPreviewWithEditor": false,
     "terminal.integrated.tabs.focusMode": "doubleClick",
