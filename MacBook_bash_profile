@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Source bash-completion if installed
+if [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]]; then
+    . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+fi
+
+# Ensure Git completion is sourced
+if [[ -r "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ]]; then
+    . "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
+fi
+
+export PATH=$PATH:/Users/iankennedy/Library/Python/3.9/bin
+
+_mince() {
+    COMPREPLY=($(compgen -W "$(make -qp | awk -F':' '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$)/ {split($1,A,/ /);for(i in A)print A[i]}' | sort)" -- "${COMP_WORDS[COMP_CWORD]}"))
+}
+
+complete -F _mince mince
+
+# Enable the subsequent settings only in interactive sessions
+case $- in
+  *i*) ;;
+    *) return;;
+esac
+
+export OSH='/Users/iankennedy/.oh-my-bash'
+
+OSH_THEME="90210"
+
+completions=()
+aliases=()
+plugins=()
+
+source "$OSH"/oh-my-bash.sh
